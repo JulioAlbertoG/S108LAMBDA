@@ -26,11 +26,8 @@ public class Ejecutor_e1 {
 		list.add("Helena");
 		
 		
-		
-		list.removeIf(nom -> !(nom.contains("o")));
-		list.removeIf(nom -> nom.length()<5);
-		
-		//list.forEach(nom ->System.out.println(nom));
+		buscaO(list);
+		buscaOiCinc(list);
 		
 		/*
 		 * Crea una llista amb els noms dels mesos de l’any. Imprimeix tots els elements de la llista 
@@ -51,13 +48,13 @@ public class Ejecutor_e1 {
 		mesos.add("Novembre");
 		mesos.add("Desembre");
 		
-		//mesos.forEach(mes ->System.out.println(mes));
+		mesos.forEach(mes ->System.out.println(mes));
 		
 		/*
 		 * Fer la mateixa impressió del punt anterior, però mitjançant method reference. 
 		 */
 		
-		//mesos.forEach(System.out :: println);
+		mesos.forEach(System.out :: println);
 		
 		
 		/*
@@ -67,7 +64,7 @@ public class Ejecutor_e1 {
 		 */
 		
 		FunctionalInterface fi = () -> 3.1415;
-		//System.out.println(fi.getPiValue());
+		System.out.println(fi.getPiValue());
 		
 		/*
 		 * Crea una llista amb nombres i cadenes de text i ordena la llista amb les cadenes de més 
@@ -84,19 +81,15 @@ public class Ejecutor_e1 {
 		
 	
 
-		noms.sort((o1,o2) -> Integer.compare(o1.length(), o2.length()));
-			
-		//noms.forEach(nom ->System.out.println(nom));
+		llistaCurtaALlarga(noms);
 		
 		/*
 		 * Amb la llista de l’exercici anterior, ara ordena-la al revés, de cadena més llarga a 
 		 * més curta.
 		 */
 		
+		llistaLlargaACurta(noms);
 		
-		noms.sort((o1,o2) -> Collections.reverseOrder().compare(o1.length(), o2.length()));
-		
-		//noms.forEach(nom ->System.out.println(nom));
 		
 		/*
 		 * Crea una Functional Interface que contingui un mètode anomenat reverse(). Aquest mètode ha de 
@@ -115,10 +108,29 @@ public class Ejecutor_e1 {
 			
 		};
 		
-		System.out.println(method.reverse("Julio"));
+		//System.out.println(method.reverse("Julio"));
 		
 	}
 	
+	public static void buscaO (List<String> list2) {
+		list2.removeIf(nom -> !(nom.contains("o")));
+		list2.forEach(nom ->System.out.println(nom));
+	}
+	
+	public static void buscaOiCinc(List<String> list3) {
+		list3.removeIf(nom -> nom.length()<5);
+		list3.forEach(nom ->System.out.println(nom));
+	}
+	public static void llistaCurtaALlarga(List<String> noms) {
+		noms.sort((o1,o2) -> Integer.compare(o1.length(), o2.length()));
+		
+		noms.forEach(nom ->System.out.println(nom));
+	}
+	public static void llistaLlargaACurta(List<String> noms) {
+		noms.sort((o1,o2) -> Collections.reverseOrder().compare(o1.length(), o2.length()));
+		
+		noms.forEach(nom ->System.out.println(nom));
+	}
 
 	
 	
